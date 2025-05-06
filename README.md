@@ -115,7 +115,7 @@
   </style>
 </head>
 <body>
-  <h1>İklim Hafıza Oyunu</h1>
+  <h1>Hafıza Arenası</h1>
   <div class="scores">
     <div>Oyuncu 1: <span id="score1">0</span></div>
     <div>Oyuncu 2: <span id="score2">0</span></div>
