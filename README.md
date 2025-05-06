@@ -179,25 +179,28 @@
       if (flippedCards.length === 2) {
         const [first, second] = flippedCards;
         if (isMatch(first.dataset.text, second.dataset.text)) {
-          first.classList.add('matched');
-          second.classList.add('matched');
-          if (currentPlayer === 1) {
-            score1++;
-            document.getElementById('score1').textContent = score1;
-          } else {
-            score2++;
-            document.getElementById('score2').textContent = score2;
-          }
-          matchedCount++;
-          if (matchedCount === pairs.length) showWinner();
-          flippedCards = [];
+          // Kartlar eşleşti, 0.5 saniye bekle
+          setTimeout(() => {
+            first.classList.add('matched');
+            second.classList.add('matched');
+            if (currentPlayer === 1) {
+              score1++;
+              document.getElementById('score1').textContent = score1;
+            } else {
+              score2++;
+              document.getElementById('score2').textContent = score2;
+            }
+            matchedCount++;
+            if (matchedCount === pairs.length) showWinner();
+            flippedCards = [];
+          }, 500);  // 0.5 saniye bekleme süresi
         } else {
           setTimeout(() => {
             first.classList.remove('flipped');
             second.classList.remove('flipped');
             flippedCards = [];
             currentPlayer = currentPlayer === 1 ? 2 : 1;
-          }, 1000);
+          }, 1000);  // Kartlar eşleşmediyse 1 saniye sonra ters çevir
         }
       }
     }
